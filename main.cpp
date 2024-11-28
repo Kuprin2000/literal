@@ -25,7 +25,7 @@ struct Get;
 template <char... c>
 struct Get<TString<c...>>
 {
-	static constexpr char value[] = { c... };
+	static constexpr char value[sizeof...(c) + 1u] = { c..., '\0' };
 };
 
 template <char... a, char... b>
